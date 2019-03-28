@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Jiang xuan's Front Life`,
+    description: `蒋璇的前端生涯, 记录前端生涯的点点滴滴, 目前就职于丁香园, 任职高级前端开发工程师, Insight 数据库前端负责人`,
+    author: `@Jiang-Xuan`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -13,6 +13,14 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: "pages",
+        path: `${__dirname}/src/pages`,
+      },
+    },
+    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
