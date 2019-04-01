@@ -2,6 +2,7 @@
 path: "/why-use-the-new-blog"
 date: "2019-03-28"
 title: "为什么使用该新博客"
+tags: []
 ---
 
 之前的随笔我都是记录在 [stackedit](https://stackedit.io/app) 上面, 同步到 Google Drive 上面. 但是 stackedit 缺失很多功能:
