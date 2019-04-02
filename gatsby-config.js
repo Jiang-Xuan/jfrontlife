@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: '/jfrontlife',
   siteMetadata: {
     title: `Jiang xuan's Front Life`,
     description: `蒋璇的前端生涯, 记录前端生涯的点点滴滴, 目前就职于丁香园, 任职高级前端开发工程师, Insight 数据库前端负责人`,
