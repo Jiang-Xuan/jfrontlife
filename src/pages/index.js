@@ -14,7 +14,9 @@ const IndexPage = ({ data }) => {
       <ul>
         {edges.map(({ node }) => (
           <li key={node.id}>
-            <Link to={node.frontmatter.path}>{node.frontmatter.title}</Link>
+            <Link to={node.frontmatter.path}>
+              {node.frontmatter.title}
+            </Link>
           </li>
         ))}
       </ul>
