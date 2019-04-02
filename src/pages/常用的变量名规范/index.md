@@ -18,3 +18,15 @@ tags: ["规范"]
 ### 验证码 captcha
 
 直接使用 `captcha`, 而不是使用 `capchaCode`, `captcha` 的意思就是验证码, 这是一个专用名词. [bing 词典中 captcha](https://cn.bing.com/dict/search?q=captcha&qs=n&form=Z9LH5&sp=-1&pq=captcha&sc=2-7&sk=&cvid=D822011928834B489EEC58D85D1DA17B)
+
+### 涉及事件的变量命名
+
+on + 发生的事件
+
+例如:
+
+* 提交表单 `onSubmit`
+* 点击按钮 `onClick`
+* 获取验证码 `onGetCaptcha`
+* input 内容输入 [`onInput`](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/oninput)
+* input 内容变化 [`onChange`](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onchange)
