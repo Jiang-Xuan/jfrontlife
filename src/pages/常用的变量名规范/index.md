@@ -30,3 +30,25 @@ on + 发生的事件
 * 获取验证码 `onGetCaptcha`
 * input 内容输入 [`onInput`](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/oninput)
 * input 内容变化 [`onChange`](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onchange)
+
+### [Promise][promise] 变量名
+
+* Promise 的参数 executor 函数接受到的两个参数, 第一个命名为 **resolve**, 第二个命名为 **reject**. 非特殊情况下不得使用其他命名
+* Promise 的 than 方法的 executor 函数接收到一个参数, 命名为 **value**, 为 resolve 传递过来的数据. 非特殊情况下不得使用其他命名
+* Promise 的 catch 方法的 executor 函数接收到一个参数, 命名为 **reason**, 为 reject 传递过来的数据. 非特殊情况下不得使用其他命名
+
+Notes: 以上几点中的特殊情况, 必须在使用的时候阐述出合理的理由, 否则不得变更
+
+```js
+const foo = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve()
+  }, 5000)
+})
+
+foo
+  .then(value => {})
+  .catch(reason => {})
+```
+
+[promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
