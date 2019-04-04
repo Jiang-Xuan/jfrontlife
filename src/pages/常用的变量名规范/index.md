@@ -7,31 +7,37 @@ tags: ["规范"]
 
 一些变量名在不同的项目中都会有涉及, 但是没有一个规范, 总是做起来的时候才临时起意, 起一个什么名字
 
-### 用户注册的用户名
+## 用户注册的用户名
 
 使用 `username`. `username` 是一个单词, 所以不使用 `userName`, [bing 词典中 username](https://cn.bing.com/dict/search?q=username&qs=n&form=Z9LH5&sp=-1&pq=username&sc=2-8&sk=&cvid=8E5F5BD580FC41D49F6083637FC5FAC4)
 
-### 用户手机号码
+## 用户手机号码
 
 使用 `phoneNumber`. `phone`, `number` 是两个单词, 所以不使用 `phonenumber`
 
-### 验证码 captcha
+## 验证码 captcha
 
 直接使用 `captcha`, 而不是使用 `capchaCode`, `captcha` 的意思就是验证码, 这是一个专用名词. [bing 词典中 captcha](https://cn.bing.com/dict/search?q=captcha&qs=n&form=Z9LH5&sp=-1&pq=captcha&sc=2-7&sk=&cvid=D822011928834B489EEC58D85D1DA17B)
 
-### 涉及事件的变量命名
+## 涉及事件的变量命名
 
 on + 发生的事件
 
 例如:
 
 * 提交表单 `onSubmit`
-* 点击按钮 `onClick`
-* 获取验证码 `onGetCaptcha`
+* 点击按钮 `onClick`, 同一个组件中有可能会监听多个和业务相关的 click 事件, 命名为 `onClick + 相关联的业务名称`, 例如
+  * `onClickRefresh`
+  * `onClickBack`
+  * `onClickChangeTab`
+  * `onClickGetTimeline`
+  * `onClickGetCaptcha`
 * input 内容输入 [`onInput`](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/oninput)
 * input 内容变化 [`onChange`](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onchange)
 
-### [Promise][promise] 变量名
+Notes: 有可能不止 onClick 事件会发生一个组件内监听多个相同类型的事件, 命名方案和 `onClick` 相同. `事件类型 + 相关联的业务名称`
+
+## [Promise][promise] 变量名
 
 * Promise 的参数 executor 函数接受到的两个参数, 第一个命名为 **resolve**, 第二个命名为 **reject**. 非特殊情况下不得使用其他命名
 * Promise 的 than 方法的 executor 函数接收到一个参数, 命名为 **value**, 为 resolve 传递过来的数据. 非特殊情况下不得使用其他命名
