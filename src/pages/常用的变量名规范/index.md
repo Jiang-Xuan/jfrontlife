@@ -19,23 +19,43 @@ tags: ["规范"]
 
 直接使用 `captcha`, 而不是使用 `capchaCode`, `captcha` 的意思就是验证码, 这是一个专用名词. [bing 词典中 captcha](https://cn.bing.com/dict/search?q=captcha&qs=n&form=Z9LH5&sp=-1&pq=captcha&sc=2-7&sk=&cvid=D822011928834B489EEC58D85D1DA17B)
 
-## 涉及事件的变量命名
+## 涉及处理事件的方法命名
 
-on + 发生的事件
+> 参考
+> https://jaketrent.com/post/naming-event-handlers-react/
+>
 
-例如:
+### React
 
-* 提交表单 `onSubmit`
-* 点击按钮 `onClick`, 同一个组件中有可能会监听多个和业务相关的 click 事件, 命名为 `onClick + 相关联的业务名称`, 例如
-  * `onClickRefresh`
-  * `onClickBack`
-  * `onClickChangeTab`
-  * `onClickGetTimeline`
-  * `onClickGetCaptcha`
-* input 内容输入 [`onInput`](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/oninput)
-* input 内容变化 [`onChange`](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onchange)
+#### Props
 
-Notes: 有可能不止 onClick 事件会发生一个组件内监听多个相同类型的事件, 命名方案和 `onClick` 相同. `事件类型 + 相关联的业务名称`
+定义 props 名时, 使用 `on*`, 比如 `onClick`. 这和内置的事件处理约定一致. 自定义的组件也同样遵守该约定
+
+```js
+<button onClick={() => console.log('foooooooo')}>Click me.</button>
+```
+
+#### 处理函数命名
+
+函数命名遵循相同的模式, 但是把 `on` 替换 `handle`, 比如 `handleClick`. 一个完整的例子:
+
+```js
+<MyComponent onClick={handleClick} />
+```
+
+更多:
+
+* 提交表单 `handleSubmit`
+* 点击按钮 `handleClick`, 同一个组件中有可能会监听多个和业务相关的 click 事件, 命名为 `onClick + 相关联的业务名称`, 例如
+  * `handleClickRefresh`
+  * `handleClickBack`
+  * `handleClickChangeTab`
+  * `handleClickGetTimeline`
+  * `handleClickGetCaptcha`
+* input 内容输入 [`handleInput`](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/oninput)
+* input 内容变化 [`handleChange`](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onchange)
+
+Notes: 有可能不止 handleClick 事件会发生一个组件内监听多个相同类型的事件, 命名方案和 `handleClick` 相同. `事件类型 + 相关联的业务名称`
 
 ## [Promise][promise] 变量名
 
@@ -55,6 +75,40 @@ const foo = new Promise((resolve, reject) => {
 foo
   .then(value => {})
   .catch(reason => {})
+```
+
+## url 变量规范
+
+在代码的书写中经常会遇到 url 的拼接, `/` 的位置放置是一个痛点, 这里规范下自己在各个场景下的 url 拼接规范
+
+* constant 变量 - 要访问的是某一个资源本身, 而不是 `/`, `/` 代表着访问的是某资源下的子资源
+
+```js
+// bad
+const PREFIX = 'https://www.example.com/'
+const FOO_PREFIX = 'https://www.example.com/foo/'
+
+// good
+const PREFIX = 'https://www.example.com'
+const FOO_PREFIX = 'https://www.example.com/foo'
+```
+
+* 函数传参 - 明确参数为一个 url 片段
+
+```js
+// bad
+function foo(path) {
+  return `https://www.example.com/foo/${path}`
+}
+
+foo('bar')
+
+// good
+function foo(path) {
+  return `https://www.example.com/foo${path}`
+}
+
+foo('/bar')
 ```
 
 [promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
