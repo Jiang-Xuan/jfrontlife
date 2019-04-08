@@ -32,7 +32,7 @@ tags: ["规范"]
 定义 props 名时, 使用 `on*`, 比如 `onClick`. 这和内置的事件处理约定一致. 自定义的组件也同样遵守该约定
 
 ```js
-<button onClick={() => console.log('foooooooo')}>Click me.</button>
+<MyComponent onClick={() => console.log('foooooooo')}>Click me.</MyComponent>
 ```
 
 #### 处理函数命名
