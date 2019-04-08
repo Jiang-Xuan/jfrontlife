@@ -9,7 +9,7 @@ export default function Template({
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, html } = markdownRemark
   return (
-    <div className="blog-post-container">
+    <div style={{ padding: '2vw 5vw' }} className="blog-post-container">
       <div className="blog-post">
         <h1>{frontmatter.title} <small style={{ color: 'gray' }}>{frontmatter.tags.join(',')}</small></h1>
         <h2>{frontmatter.date}</h2>
