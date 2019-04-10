@@ -111,4 +111,31 @@ function foo(path) {
 foo('/bar')
 ```
 
+## 事件处理函数的 event 对象命名
+
+使用 `event`, 全拼, 不使用 `e`
+
+```js
+// bad
+document.addEventListener('click', e => {
+
+})
+// good
+document.addEventListener('click', event => {
+
+})
+```
+
+```js
+// bad
+<a onClick={e => {}}>
+  Click me.
+</a>
+
+// good
+<a onClick={event => {}}>
+  Click me.
+</a>
+```
+
 [promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
