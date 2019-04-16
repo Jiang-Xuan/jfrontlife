@@ -18,6 +18,14 @@ tags: ["规范"]
 
 大量的数据, 需要翻页
 
+该规范分为两种:
+
+* 用 head 来控制整个表格的数据展示
+
+在表格的头部由接口控制的时候尤为有用, 此时数据的渲染的主动权是 head 字段控制.
+
+渲染数据的方式为遍历 head 字段, head 字段为一个数组, 内部的 对象 中的 dataIndex 来标识这从 list 内部的对象中的哪一个字段中拿取数据
+
 ```js
 {
   // 业务是否成功
@@ -28,12 +36,44 @@ tags: ["规范"]
   message<string?>,
   // 业务数据
   data<{
-    // 如果需要接口控制表格头, 这里需要有
-    head: <array<{
+    head?: <array<{
       name: <string>,
       dataIndex: <string>,
       ...
     } : object>?>,
+    // 列表数据
+    list: <array<object>>,
+    // 列表翻页数据
+    pagination: <{
+      current: <number>,
+      pageSize: <number>,
+      total: <number>,
+    } : object>,
+  } : object>,
+}
+```
+
+* 用 list 来控制整个表格的数据展示
+
+接口的表格头不需要接口来控制, 表格的结构是由前端来写在代码中的, 此时数据的渲染的主动权在 前端
+
+渲染数据的方式为, 前端写定表格的结构, 然后从 list 中拿取对应的数据, 但是此时表格的头部有可能需要一部分的数据由接口返回, 所以 head 不再是一个数组类型
+
+```js
+{
+  // 业务是否成功
+  success<boolean>,
+  // 业务 code
+  code<number?>,
+  // 接口信息
+  message<string?>,
+  // 业务数据
+  data<{
+    head: {
+      dataIndex: {
+        filters: <any>
+      }
+    },
     // 列表数据
     list: <array<object>>,
     // 列表翻页数据
