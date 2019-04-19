@@ -138,4 +138,14 @@ document.addEventListener('click', event => {
 </a>
 ```
 
+## Boolean 型变量命名
+
+### has + 具体业务
+
+`has` 在英语中有完成时的意思, 在变量命名中, 一般用于询问, 比如 `是否已经拥有苹果电脑?`, `是否已经拥有今天的盒饭?`, `该条省级数据是否已经拥有标准品规名?`. 一般用于询问的 非是即否 式的提问.
+
+### is + 具体业务
+
+is 标识一般现在, 在变量命名中, 一般用于要求, 比如 `是否要更新该条数据`, `是否要买苹果电脑`, `是否要根据修改其余的和该条数据药品名相同的药品品规字段`, 一般用于要求的 非是即否 式的提问
+
 [promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
