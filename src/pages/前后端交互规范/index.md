@@ -49,7 +49,7 @@ hasFoo[0]='1'&hasBar[0]='0'
 hasFoo='1'&hasBar='0'
 ```
 
-多选项式筛选, multiple radio 式的筛选, 一般用于多个选项的筛选, 必须用数组进行提交, 及时目前只有一个选项
+多选项式筛选, multiple radio 式的筛选, 一般用于多个选项的筛选, 必须用数组进行提交, 即使目前只有一个选项
 
 ```text
 drugType[0]='化药'&drugType[1]='生物制药'
