@@ -40,18 +40,50 @@
         }
       }
     })
-  </script><link rel="shortcut icon" href="/jfrontlife/icons/icon-48x48.png?v=07fab8ad5473f1e15e5f98b64f5d02eda19b8316"/><link rel="manifest" href="/jfrontlife/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/jfrontlife/icons/icon-48x48.png?v=07fab8ad5473f1e15e5f98b64f5d02eda19b8316"/><link rel="apple-touch-icon" sizes="72x72" href="/jfrontlife/icons/icon-72x72.png?v=07fab8ad5473f1e15e5f98b64f5d02eda19b8316"/><link rel="apple-touch-icon" sizes="96x96" href="/jfrontlife/icons/icon-96x96.png?v=07fab8ad5473f1e15e5f98b64f5d02eda19b8316"/><link rel="apple-touch-icon" sizes="144x144" href="/jfrontlife/icons/icon-144x144.png?v=07fab8ad5473f1e15e5f98b64f5d02eda19b8316"/><link rel="apple-touch-icon" sizes="192x192" href="/jfrontlife/icons/icon-192x192.png?v=07fab8ad5473f1e15e5f98b64f5d02eda19b8316"/><link rel="apple-touch-icon" sizes="256x256" href="/jfrontlife/icons/icon-256x256.png?v=07fab8ad5473f1e15e5f98b64f5d02eda19b8316"/><link rel="apple-touch-icon" sizes="384x384" href="/jfrontlife/icons/icon-384x384.png?v=07fab8ad5473f1e15e5f98b64f5d02eda19b8316"/><link rel="apple-touch-icon" sizes="512x512" href="/jfrontlife/icons/icon-512x512.png?v=07fab8ad5473f1e15e5f98b64f5d02eda19b8316"/><link as="script" rel="preload" href="/jfrontlife/webpack-runtime-948159639005e90dfa75.js"/><link as="script" rel="preload" href="/jfrontlife/app-1632ab9e1ac29da35c6a.js"/><link as="script" rel="preload" href="/jfrontlife/styles-b7a6286d0e24e4dd048d.js"/><link as="script" rel="preload" href="/jfrontlife/component---src-templates-blog-template-js-fc5705b8f3fe7353cd77.js"/><link as="fetch" rel="preload" href="/jfrontlife/static/d/175/path---jsdoc规范-8-f-5-fd1-o8Qf3dXVhFSxRs9guSiXDZgRxBs.json" crossorigin="use-credentials"/></head><body><noscript id="gatsby-noscript">This app works best with JavaScript enabled.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group"><div style="padding:2vw 5vw" class="blog-post-container"><div class="blog-post"><h1>jsdoc规范<!-- --> <small style="color:gray">规范</small></h1><h2>April 16, 2019</h2><div class="blog-post-content"><p>在写 js 代码的时候经常会写 jsdoc, 这里记录下常用的 jsdoc</p>
-<h2 id="数组"><a href="#%E6%95%B0%E7%BB%84" aria-label="数组 permalink" class="custom-class"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>数组</h2>
-<h3 id="指定数据元素的数据类型"><a href="#%E6%8C%87%E5%AE%9A%E6%95%B0%E6%8D%AE%E5%85%83%E7%B4%A0%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" aria-label="指定数据元素的数据类型 permalink" class="custom-class"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>指定数据元素的数据类型</h3>
-<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">/**
- * @param {Array.&lt;Object>} foo
- * @return {Array.&lt;Object>}
- */</span></code></pre></div>
-<h3 id="仅仅指定类型为数组-数组元素为任意类型"><a href="#%E4%BB%85%E4%BB%85%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B%E4%B8%BA%E6%95%B0%E7%BB%84-%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E4%B8%BA%E4%BB%BB%E6%84%8F%E7%B1%BB%E5%9E%8B" aria-label="仅仅指定类型为数组 数组元素为任意类型 permalink" class="custom-class"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>仅仅指定类型为数组, 数组元素为任意类型</h3>
-<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">/**
- * @param {Array} foo
- */</span></code></pre></div>
-<h3 id="指定数组元素为-Object-时-Object-的结构"><a href="#%E6%8C%87%E5%AE%9A%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E4%B8%BA-Object-%E6%97%B6-Object-%E7%9A%84%E7%BB%93%E6%9E%84" aria-label="指定数组元素为 Object 时 Object 的结构 permalink" class="custom-class"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>指定数组元素为 Object 时, Object 的结构</h3>
-<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">/**
- * @param {Array.&lt;{foo: Number, bar: String}>} foo
- *?</span></code></pre></div></div></div></div></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.page={"componentChunkName":"component---src-templates-blog-template-js","jsonName":"jsdoc规范-8f5","path":"/jsdoc规范"};window.dataPath="175/path---jsdoc规范-8-f-5-fd1-o8Qf3dXVhFSxRs9guSiXDZgRxBs";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-1632ab9e1ac29da35c6a.js"],"component---src-templates-blog-template-js":["/component---src-templates-blog-template-js-fc5705b8f3fe7353cd77.js"],"component---src-pages-404-js":["/component---src-pages-404-js-24898b843ce01710ee02.js"],"component---src-pages-index-js":["/component---src-pages-index-js-d0a5baccc50a130d6c9c.js"],"component---src-pages-page-2-js":["/component---src-pages-page-2-js-9fb45738ac9b7d82b75b.js"],"pages-manifest":["/pages-manifest-7e8fa87a22e2f4b1444d.js"]};/*]]>*/</script><script src="/jfrontlife/component---src-templates-blog-template-js-fc5705b8f3fe7353cd77.js" async=""></script><script src="/jfrontlife/styles-b7a6286d0e24e4dd048d.js" async=""></script><script src="/jfrontlife/app-1632ab9e1ac29da35c6a.js" async=""></script><script src="/jfrontlife/webpack-runtime-948159639005e90dfa75.js" async=""></script></body></html>
+  </script><link rel="shortcut icon" href="/jfrontlife/icons/icon-48x48.png?v=07fab8ad5473f1e15e5f98b64f5d02eda19b8316"/><link rel="manifest" href="/jfrontlife/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/jfrontlife/icons/icon-48x48.png?v=07fab8ad5473f1e15e5f98b64f5d02eda19b8316"/><link rel="apple-touch-icon" sizes="72x72" href="/jfrontlife/icons/icon-72x72.png?v=07fab8ad5473f1e15e5f98b64f5d02eda19b8316"/><link rel="apple-touch-icon" sizes="96x96" href="/jfrontlife/icons/icon-96x96.png?v=07fab8ad5473f1e15e5f98b64f5d02eda19b8316"/><link rel="apple-touch-icon" sizes="144x144" href="/jfrontlife/icons/icon-144x144.png?v=07fab8ad5473f1e15e5f98b64f5d02eda19b8316"/><link rel="apple-touch-icon" sizes="192x192" href="/jfrontlife/icons/icon-192x192.png?v=07fab8ad5473f1e15e5f98b64f5d02eda19b8316"/><link rel="apple-touch-icon" sizes="256x256" href="/jfrontlife/icons/icon-256x256.png?v=07fab8ad5473f1e15e5f98b64f5d02eda19b8316"/><link rel="apple-touch-icon" sizes="384x384" href="/jfrontlife/icons/icon-384x384.png?v=07fab8ad5473f1e15e5f98b64f5d02eda19b8316"/><link rel="apple-touch-icon" sizes="512x512" href="/jfrontlife/icons/icon-512x512.png?v=07fab8ad5473f1e15e5f98b64f5d02eda19b8316"/><link as="script" rel="preload" href="/jfrontlife/webpack-runtime-948159639005e90dfa75.js"/><link as="script" rel="preload" href="/jfrontlife/app-1632ab9e1ac29da35c6a.js"/><link as="script" rel="preload" href="/jfrontlife/styles-b7a6286d0e24e4dd048d.js"/><link as="script" rel="preload" href="/jfrontlife/component---src-templates-blog-template-js-fc5705b8f3fe7353cd77.js"/><link as="fetch" rel="preload" href="/jfrontlife/static/d/948/path---需求开发规范-4-bf-2c4-uFBUJwRqZA8y7ZAvL34FOpCeePQ.json" crossorigin="use-credentials"/></head><body><noscript id="gatsby-noscript">This app works best with JavaScript enabled.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group"><div style="padding:2vw 5vw" class="blog-post-container"><div class="blog-post"><h1>需求开发规范<!-- --> <small style="color:gray">规范</small></h1><h2>April 19, 2019</h2><div class="blog-post-content"><p>一个版本, 到一个需求的开发都应该有节奏, 有规划, 有时间.</p>
+<p>在日常的开发中如何评估自己的能力, 同事的能力, 协作能力. 需要在工作中慢慢的来感悟, 但是自己必须要有这个意识. 所以该规范出现了</p>
+<p>目前团队的需求管理工具为 <a href="https://www.tapd.cn">tapd</a></p>
+<h3 id="评审会"><a href="#%E8%AF%84%E5%AE%A1%E4%BC%9A" aria-label="评审会 permalink" class="custom-class"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>评审会</h3>
+<p>按时参加, 认真听每一个需求, 尽量完全的理解每一个需求, 如果需求在需求会上不能完全理解, 请即时在会下找产品做详细的沟通.</p>
+<h3 id="每一个需求需要注意的点"><a href="#%E6%AF%8F%E4%B8%80%E4%B8%AA%E9%9C%80%E6%B1%82%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E7%82%B9" aria-label="每一个需求需要注意的点 permalink" class="custom-class"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>每一个需求需要注意的点</h3>
+<ul>
+<li>
+<p>该需求是 bug 类需求还是 feature 类需求.</p>
+</li>
+<li>
+<p>该需求要解决什么问题? 或者是该需求想要做什么, 想要得到什么样的效果.</p>
+</li>
+<li>
+<p>如果是 bug 类的需求, 需要明确如何 reproduce 该 bug.</p>
+</li>
+<li>
+<p>该需求涉及到几方面, Front End engineer, Back End engineer, User Interface designer, User Experience designer, Operation engineer.</p>
+</li>
+<li>
+<p>该需求是否和目前已有的功能有交集.</p>
+</li>
+<li>
+<p>该需求是否需要拆分来分配给多人实现.</p>
+</li>
+<li>
+<p>如果需要和后端交互, 在评审阶段就需要将有几个接口, 接口大概的复杂度给出.</p>
+</li>
+<li>
+<p>如果需要和设计交互, 需要明确设计的要求, 以及实现上的难度.</p>
+</li>
+<li>
+<p>每一个需求的时间必须清晰, 需求的完成时间是由以下几方面加起来的</p>
+<ul>
+<li>开发时间</li>
+<li>联调时间</li>
+<li>测试时间</li>
+<li>测试的反馈修复时间</li>
+</ul>
+</li>
+</ul>
+<p>Note: 以上的评审包括 产品的需求评审, 技术的技术评审</p>
+<h3 id="每一个版本需要注意的点"><a href="#%E6%AF%8F%E4%B8%80%E4%B8%AA%E7%89%88%E6%9C%AC%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E7%82%B9" aria-label="每一个版本需要注意的点 permalink" class="custom-class"><svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>每一个版本需要注意的点</h3>
+<ul>
+<li>深刻理解该版本中的所有需求, 并将时间确定下来, 分配需求的时候需要和开发者深入沟通需求的所有细节</li>
+<li>整个版本的时间都需要明确构成的每一个阶段, 每一个时间点都是被确定下来的, 不要做模糊的事情</li>
+</ul></div></div></div></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.page={"componentChunkName":"component---src-templates-blog-template-js","jsonName":"需求开发规范-4bf","path":"/需求开发规范"};window.dataPath="948/path---需求开发规范-4-bf-2c4-uFBUJwRqZA8y7ZAvL34FOpCeePQ";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-1632ab9e1ac29da35c6a.js"],"component---src-templates-blog-template-js":["/component---src-templates-blog-template-js-fc5705b8f3fe7353cd77.js"],"component---src-pages-404-js":["/component---src-pages-404-js-24898b843ce01710ee02.js"],"component---src-pages-index-js":["/component---src-pages-index-js-d0a5baccc50a130d6c9c.js"],"component---src-pages-page-2-js":["/component---src-pages-page-2-js-9fb45738ac9b7d82b75b.js"],"pages-manifest":["/pages-manifest-7e8fa87a22e2f4b1444d.js"]};/*]]>*/</script><script src="/jfrontlife/component---src-templates-blog-template-js-fc5705b8f3fe7353cd77.js" async=""></script><script src="/jfrontlife/styles-b7a6286d0e24e4dd048d.js" async=""></script><script src="/jfrontlife/app-1632ab9e1ac29da35c6a.js" async=""></script><script src="/jfrontlife/webpack-runtime-948159639005e90dfa75.js" async=""></script></body></html>
