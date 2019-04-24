@@ -14,7 +14,7 @@ tags: ["规范"]
 
 ## 接口格式规范
 
-接口根字段包含 `success<boolean>`, `code<number?>`, `message<string?>`, `data<object = {}>` 字段
+接口根字段包含 `success<boolean>`, `code<number?>`, `message<string?>`, `data<{}>` 字段
 
 * success 字段表示接口请求的业务后端是否处理成功
 * code 一个的接口响应会出现多场景, 用该 code 区分多场景, 注意该 code 必须是一个数字
@@ -37,9 +37,7 @@ drugName=foo&drugType=barbar
 
 单选项筛选, radio 式的筛选, 一般用于非是即否的选项, 禁止使用数组来提交单选项式的筛选, 如果考虑后续有可能升级为多选项式的筛选, 也应该重新评估, 不需要做向后兼容.
 
-由于 url 参数不支持 Boolean, 所以字符串 `'0'` 代表 false, '1' 代表 true.
-
-这种 Boolean 式的参数命名规范 `has + 具体业务`
+由于 url 参数不支持 Boolean, 所以字符串 `'0'` 代表 false, `'1'` 代表 true.
 
 ```text
 // bad
@@ -67,30 +65,30 @@ drugType[0]='化药'&drugType[1]='生物制药'
 
 渲染数据的方式为遍历 head 字段, head 字段为一个数组, 内部的 对象 中的 dataIndex 来标识这从 list 内部的对象中的哪一个字段中拿取数据
 
-```js
+```typescript
 {
   // 业务是否成功
-  success<boolean>,
+  success: boolean,
   // 业务 code
-  code<number?>,
+  code?: number,
   // 接口信息
-  message<string?>,
+  message?: string,
   // 业务数据
-  data<{
-    head?: <array<{
-      name: <string>,
-      dataIndex: <string>,
+  data: {
+    head?: {
+      name: string,
+      dataIndex: string,
       ...
-    } : object>?>,
+    }[],
     // 列表数据
-    list: <array<object>>,
+    list: {}[],
     // 列表翻页数据
-    pagination: <{
-      current: <number>,
-      pageSize: <number>,
-      total: <number>,
-    } : object>,
-  } : object>,
+    pagination: {
+      current: number,
+      pageSize: number,
+      total: number,
+    },
+  },
 }
 ```
 
@@ -100,10 +98,10 @@ drugType[0]='化药'&drugType[1]='生物制药'
 
 渲染数据的方式为, 前端写定表格的结构, 然后从 list 中拿取对应的数据, 但是此时表格的头部有可能需要一部分的数据由接口返回, 所以 head 不再是一个数组类型
 
-```js
+```typescript
 {
   // 业务是否成功
-  success<boolean>,
+  success: boolean,
   // 业务 code
   code<number?>,
   // 接口信息

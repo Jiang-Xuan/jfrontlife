@@ -19,6 +19,18 @@ tags: ["规范"]
 
 直接使用 `captcha`, 而不是使用 `capchaCode`, `captcha` 的意思就是验证码, 这是一个专用名词. [bing 词典中 captcha](https://cn.bing.com/dict/search?q=captcha&qs=n&form=Z9LH5&sp=-1&pq=captcha&sc=2-7&sk=&cvid=D822011928834B489EEC58D85D1DA17B)
 
+## 涉及到输入框提示词的函数命名
+
+在业务的开发过程中, 会遇到用户在 input 的时候需要请求提示词的接口来获取提示词方便用户的选择, 这里规范关于提示词的命名规范
+
+`具体的业务 + Suggest`
+
+例如:
+
+```js
+const queryElementSuggest = 'https://www.example.com/foo'
+```
+
 ## 涉及处理事件的方法命名
 
 > 参考
