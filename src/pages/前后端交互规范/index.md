@@ -37,14 +37,14 @@ drugName=foo&drugType=barbar
 
 单选项筛选, radio 式的筛选, 一般用于非是即否的选项, 禁止使用数组来提交单选项式的筛选, 如果考虑后续有可能升级为多选项式的筛选, 也应该重新评估, 不需要做向后兼容.
 
-由于 url 参数不支持 Boolean, 所以字符串 `'0'` 代表 false, `'1'` 代表 true.
+由于 url 参数不支持 Boolean, 所以字符串 `'-1'` 代表 false, `'1'` 代表 true.
 
 ```text
 // bad
-hasFoo[0]='1'&hasBar[0]='0'
+hasFoo[0]='1'&hasBar[0]='-1'
 
 // good
-hasFoo='1'&hasBar='0'
+hasFoo='1'&hasBar='-1'
 ```
 
 多选项式筛选, multiple radio 式的筛选, 一般用于多个选项的筛选, 必须用数组进行提交, 即使目前只有一个选项
@@ -81,7 +81,10 @@ drugType[0]='化药'&drugType[1]='生物制药'
       ...
     }[],
     // 列表数据
-    list: {}[],
+    list: [{
+      // list 数据一般都会需要 id 字段, 建议返回!!
+      id: string,
+    }],
     // 列表翻页数据
     pagination: {
       current: number,

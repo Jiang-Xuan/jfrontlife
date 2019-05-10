@@ -30,8 +30,19 @@ tags: ["规范"]
 例如:
 
 ```js
-const queryElementSuggest = 'https://www.example.com/foo'
+const getElementSuggest = 'https://www.example.com/foo'
 ```
+
+## api 命名
+
+**实施时间: 2019.5.5**
+
+请求的接口地址一般需要命名, 为了明确请求类型, 制定该规范:
+
+* `GET` 请求, `get + 具体业务`
+* `POST` 请求, `post + 具体业务`
+  * 目前更新数据也是使用的 post 类型, 更新数据命名为 `update + 具体业务`
+  * 目前删除数据也是使用的 post 类型, 删除数据命名为 `delete + 具体业务`
 
 ## 涉及处理事件的方法命名
 
