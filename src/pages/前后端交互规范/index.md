@@ -29,13 +29,13 @@ tags: ["规范"]
 
 一个表格的数据展示一般会有筛选项的出现, 复杂的筛选项会导致请求的复杂, 所以必须有一个规范来约束请求的数据格式
 
-表格的筛选项一般分为 input 筛选, 也就是文字筛选
+* 表格的筛选项一般分为 input 筛选, 也就是文字筛选
 
 ```text
 drugName=foo&drugType=barbar
 ```
 
-单选项筛选, radio 式的筛选, 一般用于非是即否的选项, 禁止使用数组来提交单选项式的筛选, 如果考虑后续有可能升级为多选项式的筛选, 也应该重新评估, 不需要做向后兼容.
+* 单选项筛选, radio 式的筛选, 一般用于非是即否的选项, 禁止使用数组来提交单选项式的筛选, 如果考虑后续有可能升级为多选项式的筛选, 也应该重新评估, 不需要做向后兼容.
 
 由于 url 参数不支持 Boolean, 所以字符串 `'-1'` 代表 false, `'1'` 代表 true.
 
@@ -47,10 +47,42 @@ hasFoo[0]='1'&hasBar[0]='-1'
 hasFoo='1'&hasBar='-1'
 ```
 
-多选项式筛选, multiple radio 式的筛选, 一般用于多个选项的筛选, 必须用数组进行提交, 即使目前只有一个选项
+* 多选项式筛选, multiple radio 式的筛选, 一般用于多个选项的筛选, 必须用数组进行提交, 即使目前只有一个选项
 
 ```text
 drugType[0]='化药'&drugType[1]='生物制药'
+```
+
+* 排序式筛选, 排序分为降序排序, 升序排序
+
+降序排序为 -1 ▼, 升序排序为 1 ▲
+
+descend 为降序, ascend 为升序
+
+```text
+sorter='id,descend'
+```
+
+多重排序式筛选
+
+```text
+sorter='id,ascend;name,descend'
+```
+
+* 时间筛选式
+
+时间筛选传递时间戳
+
+单个时间筛选
+
+```text
+inviteTime=1559788105474
+```
+
+时间段筛选, 不采用数组传递, 使用后缀 `start`, `end` 来标识
+
+```text
+createTimeStart=1559788105474&createTimeEnd=1559788151853
 ```
 
 #### 响应规范
@@ -66,7 +98,30 @@ drugType[0]='化药'&drugType[1]='生物制药'
 渲染数据的方式为遍历 head 字段, head 字段为一个数组, 内部的 对象 中的 dataIndex 来标识这从 list 内部的对象中的哪一个字段中拿取数据
 
 ```typescript
-{
+interface IHead {
+  name: string;
+  dataIndex: string;
+}
+interface IList {
+  // list 数据一般都会需要 id 字段, 建议返回!!
+  id: string;
+  [string]: any;
+}
+interface IPagination {
+  current: number;
+  pageSize: number;
+  total: number;
+}
+
+interface IData {
+  head?: IHead[],
+  // 列表数据
+  list: IList[],
+  // 列表翻页数据
+  pagination: IPagination,
+}
+
+interface IResponse {
   // 业务是否成功
   success: boolean,
   // 业务 code
@@ -74,24 +129,7 @@ drugType[0]='化药'&drugType[1]='生物制药'
   // 接口信息
   message?: string,
   // 业务数据
-  data: {
-    head?: {
-      name: string,
-      dataIndex: string,
-      ...
-    }[],
-    // 列表数据
-    list: [{
-      // list 数据一般都会需要 id 字段, 建议返回!!
-      id: string,
-    }],
-    // 列表翻页数据
-    pagination: {
-      current: number,
-      pageSize: number,
-      total: number,
-    },
-  },
+  data: IData,
 }
 ```
 
@@ -102,29 +140,29 @@ drugType[0]='化药'&drugType[1]='生物制药'
 渲染数据的方式为, 前端写定表格的结构, 然后从 list 中拿取对应的数据, 但是此时表格的头部有可能需要一部分的数据由接口返回, 所以 head 不再是一个数组类型
 
 ```typescript
-{
+interface IHead {
+  [string]: {
+    filters: any
+  };
+}
+
+interface IData {
+  head?: IHead[],
+  // 列表数据
+  list: IList[],
+  // 列表翻页数据
+  pagination: IPagination,
+}
+
+interface IResponse {
   // 业务是否成功
   success: boolean,
   // 业务 code
-  code<number?>,
+  code?: number,
   // 接口信息
-  message<string?>,
+  message?: string,
   // 业务数据
-  data<{
-    head: {
-      dataIndex: {
-        filters: <any>
-      }
-    },
-    // 列表数据
-    list: <array<object>>,
-    // 列表翻页数据
-    pagination: <{
-      current: <number>,
-      pageSize: <number>,
-      total: <number>,
-    } : object>,
-  } : object>,
+  data: IData,
 }
 ```
 
