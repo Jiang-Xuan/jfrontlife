@@ -1,8 +1,8 @@
 ---
-path: "insight沉淀"
+path: "/insight沉淀"
 date: "2019-06-05"
 title: "insight 沉淀"
-tags: []
+tags: [""]
 ---
 
 该文件包含所有的在 insight 项目组中的沉淀的 `组件`, `包`
@@ -11,9 +11,19 @@ tags: []
 
 该组件用于 insight 管理后台中, 负责处理通用的 筛选项 和 展示列表
 
+并且该组件将同步筛选条件至 url 之上
+
+#### caveat
+
+* <details><summary>该组件需要成为 umi 的配置式路由的的直接组件, 因为依赖 location props</summary><image src="https://i.loli.net/2019/06/10/5cfe115e92a9f52062.png" /><details>
+
 <details>
   <summary>图片 example</summary>
   <image src="https://i.loli.net/2019/06/05/5cf770011c7a420747.png" />
+</details>
+<details>
+  <summary>实际使用的地址</summary>
+  TODO:
 </details>
 
 <details>
@@ -30,7 +40,6 @@ tags: []
   </ul>
 </details>
 
-<details>
-  <summary>codesandbox example 1</summary>
-  TODO:
-</details>
+### 代码
+
+TODO: gitlab 的链接

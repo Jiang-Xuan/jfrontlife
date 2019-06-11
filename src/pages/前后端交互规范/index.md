@@ -69,7 +69,7 @@ sorter='id,descend'
 sorter='id,ascend;name,descend'
 ```
 
-* 时间筛选式
+* 时间式筛选
 
 时间筛选传递时间戳
 
@@ -83,6 +83,14 @@ inviteTime=1559788105474
 
 ```text
 createTimeStart=1559788105474&createTimeEnd=1559788151853
+```
+
+* pagination 式筛选
+
+列表的当前页, 每页条数
+
+```text
+p=1&pageSize=15
 ```
 
 #### 响应规范
