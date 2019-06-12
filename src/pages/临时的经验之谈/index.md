@@ -58,3 +58,37 @@ jquery: 在 jquery 时代, 数据的获取一般通过 `$.ajax` 来获取, 获�
 backbone: 实现方式同样是使用 HTML template 来绑定数据, 类 jquery 方式绑定事件, 目前所知, 还是需要一次性 `$.html(html)`,这样的方式会有损性能. 不过 backbone 不绑定使用 view 的工具, 你可以选择自己喜欢的模板甚至是实现一个 virtual dom 来更新视图, backbone 和 babel, eslint, webpack 等前端的开发工具配合不完善
 
 react: ~~使用 React 可以让你只用关心数据, 在数据变化的时候视图会同步变化~~ `Update: 这不是 React 的优点, 所有的 MVC 框架都有`. virtual dom 可以让操作的 dom 的性能消耗降到最低, 但是 React 其实并不是一个完整的 MVC 框架
+
+## 为什么使用 lodash.flow/lodash.flowRight
+
+https://lodash.com/docs/4.17.11#flow
+https://lodash.com/docs/4.17.11#flowRight
+
+在嵌套调用函数的时候非常有用, 比如以下代码:
+
+```js
+connect(dispatch, location)(SearchList({
+  listRequestType: 'test/getList'
+})(OriginComponent))
+```
+
+以上的代码看得懂吗? 可读性非常差劲, 使用 lodash.flowRight
+
+```js
+const compose = _.flowRight(
+  connect(dispatch, location),
+  SearchList({
+    listRequestType: 'test/getList',
+  })
+)
+
+compose(OriginComponent)
+```
+
+可读性是不是好了很多?
+
+flow 是从左到右进行调用, flowRight 是右向左调用
+
+flow 符合人类阅读习惯, 从左至右.
+
+flowRight 更符合写代码时候的逻辑, 从右至左.
