@@ -19,7 +19,7 @@ tags: ["规范"]
 
 ## 验证码 captcha
 
-直接使用 `captcha`, 而不是使用 `capchaCode`, `captcha` 的意思就是验证码, 这是一个专用名词. [bing 词典中 captcha](https://cn.bing.com/dict/search?q=captcha&qs=n&form=Z9LH5&sp=-1&pq=captcha&sc=2-7&sk=&cvid=D822011928834B489EEC58D85D1DA17B)
+直接使用 `captcha`, 而不是使用 `captchaCode`, `captcha` 的意思就是验证码, 这是一个专用名词. [bing 词典中 captcha](https://cn.bing.com/dict/search?q=captcha&qs=n&form=Z9LH5&sp=-1&pq=captcha&sc=2-7&sk=&cvid=D822011928834B489EEC58D85D1DA17B)
 
 ## 涉及到输入框提示词的函数命名
 
